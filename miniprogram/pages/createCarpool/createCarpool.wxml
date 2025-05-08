@@ -1,0 +1,116 @@
+<!-- pages/createCarpool/createCarpool.wxml -->
+<view class="container">
+  <!-- 表单标题 -->
+  <view class="form-title">发布拼车信息</view>
+
+  <!-- 类型选择 -->
+  <view class="form-section">
+    <text class="section-label">拼车类型</text>
+    <picker 
+      mode="selector" 
+      range="{{typeOptions}}" 
+      value="{{selectedType}}" 
+      bindchange="handleTypeChange"
+    >
+      <view class="picker-container">
+        {{typeOptions[selectedType]}}
+        <image class="arrow"></image>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 出发地 -->
+  <view class="form-section">
+    <text class="section-label">出发地</text>
+    <input 
+      type="text" 
+      placeholder="请输入出发地（如：北京市朝阳区）" 
+      value="{{formData.c_departure}}" 
+      bindinput="handleInput" 
+      data-field="c_departure"
+    />
+  </view>
+
+  <!-- 目的地 -->
+  <view class="form-section">
+    <text class="section-label">目的地</text>
+    <input 
+      type="text" 
+      placeholder="请输入目的地（如：上海市浦东新区）" 
+      value="{{formData.c_destination}}" 
+      bindinput="handleInput" 
+      data-field="c_destination"
+    />
+  </view>
+
+  <!-- 日期时间选择 -->
+  <view class="form-section">
+    <text class="section-label">出发时间</text>
+    <view class="datetime-picker">
+      <picker 
+        mode="date" 
+        value="{{formData.date}}" 
+        start="{{today}}" 
+        bindchange="handleDateChange"
+      >
+        <view class="picker-item">日期：{{formData.date}}</view>
+      </picker>
+      <picker 
+        mode="time" 
+        value="{{formData.time}}" 
+        bindchange="handleTimeChange"
+      >
+        <view class="picker-item">时间：{{formData.time}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 车找人额外字段（动态显示） -->
+  <view wx:if="{{isCarSeeking}}" class="form-section">
+    <text class="section-label">拼车价格（元）</text>
+    <input 
+      type="number" 
+      placeholder="请输入拼车价格" 
+      value="{{formData.c_price}}" 
+      bindinput="handleInput" 
+      data-field="c_price"
+    />
+  </view>
+
+  <view wx:if="{{isCarSeeking}}" class="form-section">
+    <text class="section-label">车型</text>
+    <input 
+      type="text" 
+      placeholder="请输入车型（如：丰田卡罗拉）" 
+      value="{{formData.c_car_model}}" 
+      bindinput="handleInput" 
+      data-field="c_car_model"
+    />
+  </view>
+
+  <view wx:if="{{isCarSeeking}}" class="form-section">
+    <text class="section-label">剩余座位</text>
+    <input 
+      type="number" 
+      placeholder="请输入剩余座位数" 
+      value="{{formData.c_remaining_seats}}" 
+      bindinput="handleInput" 
+      data-field="c_remaining_seats"
+    />
+  </view>
+
+  <!-- 备注 -->
+  <view class="form-section">
+    <text class="section-label">备注</text>
+    <textarea 
+      placeholder="请输入备注信息（如：可携带行李）" 
+      value="{{formData.c_note}}" 
+      bindinput="handleInput" 
+      data-field="c_note"
+      maxlength="500"
+    />
+  </view>
+
+  <!-- 提交按钮 -->
+  <button class="submit-btn" bindtap="submitForm">发布拼车</button>
+</view>

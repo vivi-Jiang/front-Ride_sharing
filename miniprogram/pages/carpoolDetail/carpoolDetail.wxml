@@ -1,0 +1,73 @@
+<!-- pages/carpoolDetail/carpoolDetail.wxml -->
+<view class="container">
+  <!-- 加载提示 -->
+  <view wx:if="{{loading}}" class="loading-tip">加载中...</view>
+
+  <!-- 错误提示 -->
+  <view wx:if="{{error}}" class="error-tip">
+    <text>{{errorMsg}}</text>
+    <button class="reload-btn" bindtap="reloadData">重新加载</button>
+  </view>
+
+  <!-- 详情内容 -->
+  <scroll-view wx:else class="detail-content" scroll-y>
+    <!-- 顶部返回按钮（可选，根据导航栏样式决定） -->
+    <navigator class="back-btn" url="/pages/carpoolList/carpoolList">
+      <image ></image>
+    </navigator>
+
+    <!-- 核心路线信息 -->
+    <view class="route-section">
+      <view class="route-line">
+        <text class="departure">{{detailData.c_departure}}</text>
+        <image class="arrow" ></image>
+        <text class="destination">{{detailData.c_destination}}</text>
+      </view>
+      <text class="date">{{detailData.c_date}}</text>
+      <view class="type-tag" style="background: {{detailData.c_type === '车找人' ? '#e6f4ff' : '#fff3e6'}}; color: {{detailData.c_type === '车找人' ? '#1677ff' : '#ff6600'}}">
+        {{detailData.c_type}}
+      </view>
+    </view>
+
+    <!-- 拼车详情信息 -->
+    <view class="info-section">
+      <text class="section-title">拼车详情</text>
+      <view class="info-item">
+        <text class="label">价格：</text>
+        <text class="value">{{detailData.c_price || '面议'}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">车型：</text>
+        <text class="value">{{detailData.c_car_model || '-'}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">剩余座位：</text>
+        <text class="value">{{detailData.c_remaining_seats || '-'}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">状态：</text>
+        <text class="value" style="color: {{detailData.c_status === '进行中' ? '#1677ff' : detailData.c_status === '已完成' ? '#00B894' : '#FF4949'}}">
+          {{detailData.c_status}}
+        </text>
+      </view>
+    </view>
+
+    <!-- 发布者信息 -->
+    <view class="user-section">
+      <text class="section-title">发布者信息</text>
+      <view class="user-info">
+        <image class="avatar" src="{{detailData.user_info.u_avatar}}"></image>
+        <view class="user-detail">
+          <text class="username">{{detailData.user_info.u_name}}</text>
+          <text class="telphone">{{detailData.user_info.u_telphone}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 备注信息 -->
+    <view class="note-section" wx:if="{{detailData.c_note}}">
+      <text class="section-title">备注</text>
+      <text class="note-content">{{detailData.c_note}}</text>
+    </view>
+  </scroll-view>
+</view>

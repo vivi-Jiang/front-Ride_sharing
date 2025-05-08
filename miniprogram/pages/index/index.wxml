@@ -1,0 +1,43 @@
+<!-- pages/carpoolList/carpoolList.wxml -->
+<view class="container">
+  <!-- 加载提示 -->
+  <view wx:if="{{loading}}" class="loading-tip">加载中...</view>
+
+  <!-- 无数据提示 -->
+  <view wx:if="{{!loading && carpoolList.length === 0}}" class="empty-tip">暂无拼车信息</view>
+
+  <!-- 拼车列表 -->
+  <scroll-view wx:else class="list-container" scroll-y>
+    <view 
+      wx:for="{{carpoolList}}" 
+      wx:key="c_id" 
+      class="carpool-item"
+      bindtap="gotoDetail"
+      data-cid="{{item.c_id}}"
+    >
+      <!-- 用户信息 -->
+      <view class="user-info">
+        <image class="avatar" src="{{item.user_info.u_avatar}}"></image>
+        <text class="username">{{item.user_info.u_name}}</text>
+      </view>
+
+      <!-- 路线信息 -->
+      <view class="route-info">
+        <view class="route-line">
+          <text class="departure">{{item.c_departure}}</text>
+          <image class="arrow" ></image>
+          <text class="destination">{{item.c_destination}}</text>
+        </view>
+        <text class="date">{{item.c_date}}</text>
+        <view class="type-tag" style="background: {{item.c_type === '车找人' ? '#e6f4ff' : '#fff3e6'}}; color: {{item.c_type === '车找人' ? '#1677ff' : '#ff6600'}}">
+          {{item.c_type}}
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+   <!-- 创建拼车按钮（新增） -->
+   <button class="create-btn" bindtap="gotoCreate">
+    <image class="create-icon"></image>
+    发布拼车
+  </button>
+</view>

@@ -1,0 +1,6 @@
+<view class="container">
+  <input placeholder="请输入用户名" bindinput="inputUName" />
+  <input placeholder="请输入手机号" bindinput="inputUTelphone" />
+  <input placeholder="请输入密码" password bindinput="inputPassword" />
+  <button type="primary" bindtap="handleRegister">注册</button>
+</view>

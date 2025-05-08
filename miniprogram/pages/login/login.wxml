@@ -1,0 +1,6 @@
+<view class="container">
+  <input placeholder="请输入用户名" bindinput="inputUName" />
+  <input placeholder="请输入密码" password bindinput="inputPassword" />
+  <button type="primary" bindtap="handleLogin">登录</button>
+  <navigator url="/pages/register/register">去注册</navigator>
+</view>

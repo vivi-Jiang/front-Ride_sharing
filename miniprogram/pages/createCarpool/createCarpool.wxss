@@ -1,0 +1,80 @@
+/* pages/createCarpool/createCarpool.wxss *//* pages/createCarpool/createCarpool.wxss */
+.container {
+  padding: 24px 16px;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+.form-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.form-section {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.section-label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.picker-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  font-size: 16px;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+}
+
+input {
+  font-size: 16px;
+  color: #333;
+  padding: 4px 0;
+}
+
+.datetime-picker {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.picker-item {
+  font-size: 16px;
+  color: #333;
+  padding: 4px 0;
+}
+
+textarea {
+  font-size: 16px;
+  color: #333;
+  min-height: 80px;
+  line-height: 1.6;
+}
+
+.submit-btn {
+  background: #1677ff;
+  color: white;
+  height: 50px;
+  border-radius: 25px;
+  margin-top: 24px;
+  font-size: 16px;
+}
+
+.submit-btn::after {
+  border: none;
+}

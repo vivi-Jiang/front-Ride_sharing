@@ -1,0 +1,137 @@
+/* pages/carpoolDetail/carpoolDetail.wxss *//* pages/carpoolDetail/carpoolDetail.wxss */
+.container {
+  min-height: 100vh;
+  background-color: #f8f8f8;
+  padding: 16px;
+}
+
+.loading-tip, .error-tip {
+  text-align: center;
+  color: #666;
+  padding: 20px;
+  font-size: 16px;
+}
+
+.error-tip .reload-btn {
+  margin-top: 12px;
+  color: #1677ff;
+  font-size: 14px;
+}
+
+.detail-content {
+  height: calc(100vh - 32px);
+}
+
+.back-btn {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.back-btn image {
+  width: 24px;
+  height: 24px;
+}
+
+.route-section {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.route-line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.departure, .destination {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.arrow {
+  width: 24px;
+  height: 24px;
+  margin: 0 12px;
+}
+
+.date {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.type-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.info-section, .user-section, .note-section {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.label {
+  font-size: 14px;
+  color: #666;
+  width: 80px;
+}
+
+.value {
+  font-size: 14px;
+  color: #333;
+  flex: 1;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.user-detail .username {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.user-detail .telphone {
+  font-size: 14px;
+  color: #666;
+}
+
+.note-content {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+}
